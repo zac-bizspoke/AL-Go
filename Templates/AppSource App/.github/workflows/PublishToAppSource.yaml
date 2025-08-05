@@ -33,7 +33,7 @@ env:
 jobs:
   Initialization:
     needs: [ ]
-    runs-on: [ windows-latest ]
+    runs-on: [ windows-2025 ]
     outputs:
       telemetryScopeJson: ${{ steps.init.outputs.telemetryScopeJson }}
     steps:
@@ -53,7 +53,7 @@ jobs:
 
   Deliver:
     needs: [ Initialization ]
-    runs-on: [ windows-latest ]
+    runs-on: [ windows-2025 ]
     name: Deliver to AppSource
     steps:
       - name: Checkout
@@ -87,7 +87,7 @@ jobs:
   PostProcess:
     needs: [ Initialization, Deliver ]
     if: always()
-    runs-on: [ windows-latest ]
+    runs-on: [ windows-2025 ]
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2

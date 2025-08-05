@@ -21,7 +21,7 @@ defaults:
 
 jobs:
   PushChanges:
-    runs-on: [windows-latest]
+    runs-on: [windows-2025]
     name: Push changes to ${{ inputs.environment }}
     steps:
       - name: Checkout

@@ -30,7 +30,7 @@ defaults:
 
 jobs:
   PullChanges:
-    runs-on: [windows-latest]
+    runs-on: [windows-2025]
     name: Pull changes from ${{ inputs.environment }}
     steps:
       - name: Checkout

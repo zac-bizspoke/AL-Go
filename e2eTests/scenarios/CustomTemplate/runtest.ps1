@@ -101,7 +101,7 @@ $customJobs = @(
         "Name" = "CustomJob-TemplateInit"
         "Content" = @(
             "CustomJob-TemplateInit:"
-            "  runs-on: [ windows-latest ]"
+            "  runs-on: [ windows-2025 ]"
             "  steps:"
             "    - name: Init"
             "      run: |"
@@ -114,7 +114,7 @@ $customJobs = @(
         "Content" = @(
             "CustomJob-TemplateDeploy:"
             "  needs: [ Initialization, Build ]"
-            "  runs-on: [ windows-latest ]"
+            "  runs-on: [ windows-2025 ]"
             "  steps:"
             "    - name: Deploy"
             "      run: |"
@@ -127,7 +127,7 @@ $customJobs = @(
         "Content" = @(
             "JustSomeTemplateJob:"
             "  needs: [ PostProcess ]"
-            "  runs-on: [ windows-latest ]"
+            "  runs-on: [ windows-2025 ]"
             "  steps:"
             "    - name: JustSomeTemplateStep"
             "      run: |"
@@ -163,7 +163,7 @@ $customJobs = @(
         "Content" = @(
             "JustSomeJob:"
             "  needs: [ Initialization ]"
-            "  runs-on: [ windows-latest ]"
+            "  runs-on: [ windows-2025 ]"
             "  steps:"
             "    - name: JustSomeStep"
             "      run: |"
@@ -176,7 +176,7 @@ $customJobs = @(
         "Content" = @(
             "CustomJob-PreDeploy:"
             "  needs: [ Initialization, Build ]"
-            "  runs-on: [ windows-latest ]"
+            "  runs-on: [ windows-2025 ]"
             "  steps:"
             "    - name: PreDeploy"
             "      run: |"
@@ -190,7 +190,7 @@ $customJobs = @(
             "CustomJob-PostDeploy:"
             "  needs: [ Initialization, Build, Deploy ]"
             "  if: (!cancelled())"
-            "  runs-on: [ windows-latest ]"
+            "  runs-on: [ windows-2025 ]"
             "  steps:"
             "    - name: PostDeploy"
             "      run: |"

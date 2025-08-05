@@ -31,7 +31,7 @@ env:
 jobs:
   Initialization:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
-    runs-on: [ windows-latest ]
+    runs-on: [ windows-2025 ]
     outputs:
       telemetryScopeJson: ${{ steps.init.outputs.telemetryScopeJson }}
     steps:
@@ -53,7 +53,7 @@ jobs:
           shell: powershell
 
   CheckForUpdates:
-    runs-on: [ windows-latest ]
+    runs-on: [ windows-2025 ]
     needs: [ Initialization ]
     if: github.event_name != 'workflow_run'
     steps:

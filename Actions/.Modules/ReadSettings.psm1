@@ -161,7 +161,7 @@ function GetDefaultSettings
         "templateBranch"                                = ""
         "appDependencyProbingPaths"                     = @()
         "useProjectDependencies"                        = $false
-        "runs-on"                                       = "windows-latest"
+        "runs-on"                                       = "windows-2025"
         "shell"                                         = ""
         "githubRunner"                                  = ""
         "githubRunnerShell"                             = ""
@@ -412,7 +412,7 @@ function ReadSettings {
     # gitHubRunner defaults to "runs-on", unless runs-on is Ubuntu (Linux) as this won't work.
     # gitHubRunnerShell defaults to "shell"
     #
-    # The exception for keeping gitHubRunner to Windows-Latest (when set to Ubuntu-*) will be removed when all jobs supports Ubuntu (Linux)
+    # The exception for keeping gitHubRunner to windows-2025 (when set to Ubuntu-*) will be removed when all jobs supports Ubuntu (Linux)
     # At some point in the future (likely version 3.0), we will switch to Ubuntu (Linux) as default for "runs-on"
     #
     if ($settings.shell -eq "") {
@@ -425,7 +425,7 @@ function ReadSettings {
     }
     if ($settings.githubRunner -eq "") {
         if ($settings."runs-on" -like "*ubuntu-*") {
-            $settings.githubRunner = "windows-latest"
+            $settings.githubRunner = "windows-2025"
         }
         else {
             $settings.githubRunner = $settings."runs-on"

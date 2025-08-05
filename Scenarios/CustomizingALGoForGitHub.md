@@ -115,7 +115,7 @@ permissions: read-all
 jobs:
   CreateTag:
     if: github.event.workflow_run.conclusion == 'success'
-    runs-on: windows-latest
+    runs-on: windows-2025
     steps:
       - name: mystep
         run: |
@@ -163,7 +163,7 @@ You can also add custom jobs to any of the existing AL-Go for GitHub workflows. 
   PostProcess:
     needs: [ Initialization, Build2, Build1, Build, Deploy, Deliver, DeployALDoc, CustomJob-CreateBuildTag ]
     if: (!cancelled())
-    runs-on: [ windows-latest ]
+    runs-on: [ windows-2025 ]
     steps:
       ...
 ```

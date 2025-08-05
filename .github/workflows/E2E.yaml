@@ -233,7 +233,7 @@ jobs:
           Write-Host "scenarios=$scenariosJson"
 
   ScenariosOnWindows:
-    runs-on: [ windows-latest ]
+    runs-on: [ windows-2025 ]
     needs: [ Check, SetupRepositories, Analyze ]
     if: github.event.inputs.runScenarios == 'true'
     strategy: ${{ fromJson(needs.Analyze.outputs.scenarios) }}
@@ -270,7 +270,7 @@ jobs:
           }
 
   ScenariosOnLinux:
-    runs-on: [ windows-latest ]
+    runs-on: [ windows-2025 ]
     needs: [ Check, SetupRepositories, Analyze ]
     if: github.event.inputs.runScenarios == 'true'
     strategy: ${{ fromJson(needs.Analyze.outputs.scenarios) }}

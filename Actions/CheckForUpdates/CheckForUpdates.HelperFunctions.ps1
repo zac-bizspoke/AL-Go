@@ -131,16 +131,16 @@ function ModifyRunsOnAndShell {
         [hashtable] $repoSettings
     )
 
-    # The default for runs-on is windows-latest and the default for shell is powershell
+    # The default for runs-on is windows-2025 and the default for shell is powershell
     # The default for GitHubRunner/GitHubRunnerShell is runs-on/shell (unless Ubuntu-latest are selected here, as build jobs cannot run on Ubuntu)
     # We do not change runs-on in Update AL-Go System Files and Pull Request Handler workflows
-    # These workflows will always run on windows-latest (or maybe Ubuntu-latest later) and not follow settings
+    # These workflows will always run on windows-2025 (or maybe Ubuntu-latest later) and not follow settings
     # Reasons:
     # - Update AL-Go System files is needed for changing runs-on - by having non-functioning runners, you might dead-lock yourself
     # - Pull Request Handler workflow for security reasons
-    if ($repoSettings."runs-on" -ne "windows-latest") {
+    if ($repoSettings."runs-on" -ne "windows-2025") {
         Write-Host "Setting runs-on to [ $($repoSettings."runs-on") ]"
-        $yaml.ReplaceAll('runs-on: [ windows-latest ]', "runs-on: [ $($repoSettings."runs-on") ]")
+        $yaml.ReplaceAll('runs-on: [ windows-2025 ]', "runs-on: [ $($repoSettings."runs-on") ]")
     }
     if ($repoSettings.shell -ne "powershell" -and $repoSettings.shell -ne "pwsh") {
         throw "The shell can only be set to powershell or pwsh"
@@ -362,7 +362,7 @@ function GetWorkflowContentWithChangesFromSettings {
     }
 
     $criticalWorkflows = @('UpdateGitHubGoSystemFiles', 'Troubleshooting')
-    $allowedRunners = @('windows-latest', 'ubuntu-latest')
+    $allowedRunners = @('windows-2025', 'ubuntu-latest')
     $modifyRunsOnAndShell = $true
 
     # Critical workflows may only run on allowed runners (must always be able to run)

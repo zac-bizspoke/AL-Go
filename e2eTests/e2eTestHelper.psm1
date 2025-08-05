@@ -486,20 +486,20 @@ function CreateAlGoRepository {
     }
     $repoSettingsFile = ".github\AL-Go-Settings.json"
     $repoSettings = Get-Content $repoSettingsFile -Encoding UTF8 | ConvertFrom-Json
-    $runson = "windows-latest"
+    $runson = "windows-2025"
     $shell = "powershell"
     if ($linux) {
         $runson = "ubuntu-latest"
         $shell = "pwsh"
     }
 
-    if ($runson -ne "windows-latest" -or $shell -ne "powershell") {
+    if ($runson -ne "windows-2025" -or $shell -ne "powershell") {
         $repoSettings | Add-Member -MemberType NoteProperty -Name "runs-on" -Value $runson
         $repoSettings | Add-Member -MemberType NoteProperty -Name "shell" -Value $shell
         Get-ChildItem -Path '.\.github\workflows\*.yaml' | ForEach-Object {
             Write-Host $_.FullName
             $content = Get-ContentLF -Path $_.FullName
-            $srcPattern = "runs-on: [ windows-latest ]`n"
+            $srcPattern = "runs-on: [ windows-2025 ]`n"
             $replacePattern = "runs-on: [ $runson ]`n"
             $content = "$content`n".Replace($srcPattern, $replacePattern).TrimEnd("`n")
             $srcPattern = "shell: powershell`n"

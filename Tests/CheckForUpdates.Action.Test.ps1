@@ -140,7 +140,7 @@ Describe "CheckForUpdates Action Tests" {
         $updateYamlFile = Join-Path $scriptRoot "..\..\Templates\Per Tenant Extension\.github\workflows\UpdateGitHubGoSystemFiles.yaml"
         $updateYaml = [Yaml]::Load($updateYamlFile)
         $updateYaml.content | Where-Object { $_ -like '*runs-on:*' } | ForEach-Object {
-            $_.Trim() | Should -Be 'runs-on: windows-latest' -Because "Expected 'runs-on: windows-latest', in order to hardcode runner to windows-latest, but got $_"
+            $_.Trim() | Should -Be 'runs-on: windows-2025' -Because "Expected 'runs-on: windows-2025', in order to hardcode runner to windows-2025, but got $_"
         }
     }
 }

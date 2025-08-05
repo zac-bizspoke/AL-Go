@@ -676,14 +676,14 @@ Describe "Get-ProjectsToBuild" {
         #        "buildMode": "Default",
         #        "project": "Project1",
         #        "githubRunnerShell": "powershell",
-        #        "gitHubRunner": "\"windows-latest\""
+        #        "gitHubRunner": "\"windows-2025\""
         #    },
         #    {
         #        "projectName": "Project3",
         #        "buildMode": "Default",
         #        "project": "Project3",
         #        "githubRunnerShell": "powershell",
-        #        "gitHubRunner": "\"windows-latest\""
+        #        "gitHubRunner": "\"windows-2025\""
         #    }
         #    ],
         #    "projectsCount": 2,
@@ -699,7 +699,7 @@ Describe "Get-ProjectsToBuild" {
         #        "buildMode": "Default",
         #        "project": "Project2",
         #        "githubRunnerShell": "powershell",
-        #        "gitHubRunner": "\"windows-latest\""
+        #        "gitHubRunner": "\"windows-2025\""
         #    }
         #    ],
         #    "projectsCount": 1,

@@ -83,7 +83,7 @@ if ($linux) {
     $githubRunnerShell = "pwsh"
 }
 else {
-    $githubRunner = "windows-latest"
+    $githubRunner = "windows-2025"
     $githubRunnerShell = "powershell"
 }
 
